@@ -1,0 +1,10 @@
+name: 2DMC
+version: '${project.version}'
+main: Main.CharacterControll
+api-version: 1.19
+authors: [ Shynee ]
+description: Creates spawnable armorstands that allow you to play 2D Minecraft through discord
+commands:
+  createcharacter:
+    usage: /<command>
+    description: Spawns an armorstand with the Player's head and username that can be claimed through discord
