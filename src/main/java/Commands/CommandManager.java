@@ -41,12 +41,12 @@ public class CommandManager extends ListenerAdapter implements CommandExecutor {
             TextCommandExecutor exec = new TextCommandExecutor(e.getTextChannel(), message, id, prefix);
             String cmd = message[0].replaceAll(prefix, "");
 
-            if (!message[0].contains(prefix)) return;
+            boolean isActivePlayer = PlayerData.containsId(id, activePlayers);
+            if (!isActivePlayer && !message[0].contains(prefix)) return;
 
-            //Deletes the user's message
+            // Delete command messages
             e.getMessage().delete().queue();
 
-            //Before you flame me for not using a switch statement it returned an error when I tried it
             if (cmd.equalsIgnoreCase(config.getString("discord.commands.claim_command"))) {
                 exec.executeClaimCommand();
             } else if (cmd.equalsIgnoreCase(config.getString("discord.commands.delete_command"))) {
@@ -59,11 +59,8 @@ public class CommandManager extends ListenerAdapter implements CommandExecutor {
                 exec.executeHelpCommand(e.getAuthor());
             }
 
-
             //Checks for basic movement commands (ex: "w")
-            if (PlayerData.containsId(id, activePlayers)) {
-                e.getMessage().delete().queue();
-
+            if (isActivePlayer) {
                 PlayerData playerData = PlayerData.getPlayerData(id, activePlayers);
 
                 if (playerData == null){
