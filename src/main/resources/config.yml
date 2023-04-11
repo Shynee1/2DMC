@@ -1,7 +1,6 @@
 discord:
-  token: "OTIzMDYwOTkyNzE4NTQ0ODk2.GdrWNa.5PhMOkrMPlQwUcTxfzcTZO-IHA1Dow6RqelU4k" #This is where your Discord bot token goes
+  token: "placeholder" #This is where your Discord bot token goes
   prefix: "!" #This is the prefix for the commands
-  server_id: 854138057392390174
   commands: #This is where you can edit the commands for completing actions in Discord
     claim_command: "claim"
     start_command: "start"

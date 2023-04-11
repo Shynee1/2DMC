@@ -16,9 +16,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 import javax.security.auth.login.LoginException;
 
 public final class CharacterControll extends JavaPlugin implements CommandExecutor {
-    JDA jda = null;
     public FileConfiguration config;
     public static CharacterControll instance;
+
+    private JDA jda = null;
     private boolean discordStarted = false;
 
     @Override
@@ -41,7 +42,7 @@ public final class CharacterControll extends JavaPlugin implements CommandExecut
             jda = builder.build();
             jda.awaitReady();
             discordStarted = true;
-        } catch (LoginException|InterruptedException e) {//Yes this is lazy but it also removes a lot of "if statements"
+        } catch (LoginException|InterruptedException e) {
             getServer().getConsoleSender().sendMessage(ChatColor.RED + "[2DMC] ERROR: Cannot start the Discord bot."
                     + ChatColor.RESET + "\n"
                     + ChatColor.RED + "[2DMC] Please make sure that the token in the config.yml file is correct.");
