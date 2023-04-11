@@ -15,12 +15,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.security.auth.login.LoginException;
 
-//To Do:
-//Error checking
-//-Fix bugs!!
-//-Stress test (5 people?)
-//Wtf bug (deletes messages after !stop)
-
 public final class CharacterControll extends JavaPlugin implements CommandExecutor {
     JDA jda = null;
     public FileConfiguration config;
